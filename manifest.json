@@ -1,0 +1,20 @@
+{
+  "name": "Ananindeua",
+  "short_name": "Ananindeua",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#0A2540",
+  "background_color": "#FFFFFF",
+  "icons": [
+    {
+      "src": "/img/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "lang": "pt",
+  "orientation": "any",
+  "scope": "/",
+  "description": "Serviços geotécnicos profissionais em Ananindeua, Brasil. Estudos de solo, ensaios e consultoria técnica.",
+  "id": "/ananindeua-3598"
+}
