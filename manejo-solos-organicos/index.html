@@ -116,6 +116,57 @@ header.hero, .hero { position: relative !important; }
 .leaflet-control { z-index: 800 !important; }
 .leaflet-container { z-index: 1 !important; }
 </style>
+<style id="inline-link-style">
+p a[href^="/"]:not(.cta-btn):not(.hero-cta){color:var(--accent,#556B2F) !important;text-decoration:underline !important;text-decoration-color:rgba(29,78,216,.45);text-underline-offset:2px;font-weight:600}
+p a[href^="/"]:not(.cta-btn):not(.hero-cta):hover{text-decoration-color:currentColor;opacity:.85}
+</style>
+<style id="navbar-compact-fix">
+/* Compactar navbar para que el menú entre completo */
+.navbar{padding:.65rem 1rem !important}
+.navbar .nav{gap:.55rem !important}
+.nav-item{font-size:.74rem !important;letter-spacing:.01em !important}
+.nav-item.has-dd .nav-cat-link{padding:.4rem .25rem !important}
+.nav-item.has-dd .nav-arrow{font-size:.7rem !important;margin-left:.15rem !important}
+.cta-btn{padding:.45rem .8rem !important;font-size:.72rem !important;letter-spacing:.03em !important}
+.logo-box,.brand-name,.brand{font-size:.82rem !important}
+.logo-text .main{font-size:.95rem !important}
+.logo-text .sub{font-size:.72rem !important}
+/* Para layouts aberdeen/classic con clase distinta */
+header nav a,.menu a{font-size:.78rem !important}
+@media (max-width:1100px){
+  .nav-item{font-size:.7rem !important}
+  .navbar .nav{gap:.4rem !important}
+  .cta-btn{padding:.4rem .65rem !important;font-size:.68rem !important}
+}
+</style>
+<style id="layout-defensive">
+body{overflow-x:clip;max-width:100vw}
+body>*{max-width:100vw}
+@media (min-width:901px){
+  aside{position:relative}
+  aside+main,aside~main,aside~div>main{margin-left:0}
+  .content-area{display:flex;gap:1rem}
+}
+@media (max-width:900px){
+  aside{width:100% !important;position:static !important;height:auto !important}
+  .navbar{flex-wrap:wrap}
+}
+</style>
+<style id="navbar-fixed-override">
+nav.navbar,.header-top,.main-header{position:fixed !important;top:0 !important;left:0 !important;right:0 !important;z-index:1010 !important}
+body{padding-top:60px}
+.hero,.hero-inner,header.hero{padding-top:1rem !important}
+@media (max-width:900px){body{padding-top:90px}}
+</style>
+<style id="sidebar-hover-fix-v2">
+/* Adaptativo: hover preserva color heredado (white en dark sidebar, dark en light) */
+aside .cat-name:hover,aside .sb-home:hover,aside .cat-sub-wrap a:hover,
+aside nav a:hover{color:inherit !important;text-decoration:underline !important;text-underline-offset:3px}
+aside .cat-name,aside .sb-home,aside nav a{color:inherit}
+/* Bg sutil que funciona en cualquier fondo */
+aside .cat-name:hover,aside .sb-home:hover{background:rgba(127,127,127,.12) !important}
+aside .cat-sub-wrap a:hover{background:rgba(127,127,127,.08) !important}
+</style>
 </head><body>
 
 <nav class="navbar">
@@ -186,7 +237,7 @@ header.hero, .hero { position: relative !important; }
 <hr style="border:none;height:2px;background:linear-gradient(90deg,transparent,#A16207,transparent);margin:2rem 0;width:60%;margin-left:auto;margin-right:auto">
 <p>ABNT NBR 6122:2019 (Projeto e execução de fundações), ABNT NBR 12069:1991 (Solo – Ensaio de adensamento unidimensional), ABNT NBR 7181:2016 (Solo – <a href="../peneiramento-hidrometro/" data-interlink="1"><a href="../fundacoes-aterros/" data-interlink="1">Análise</a> granulométrica</a>), ABNT NBR 13600 (Métodos para determinação de matéria orgânica)</p></section>
 
-<section class="section"><h2>Dúvidas habituais</h2><details><summary>O que caracteriza um solo orgânico em Ananindeua?</summary><p>O solo orgânico na região apresenta coloração escura, odor característico e teor de matéria orgânica acima de 10%. A turfa e a argila turfosa são os tipos mais comuns. Esses solos têm alta compressibilidade e baixa resistência, exigindo ensaios de adensamento para definir o manejo adequado.</p></details><details><summary>Quanto custa o manejo de solos orgânicos em Ananindeua?</summary><p>O custo referencial varia entre R$ 1.910 e R$ 6.620, dependendo da área, espessura da camada e tipo de tratamento. O valor inclui investigação geotécnica, ensaios de laboratório e projeto de melhoramento. Para orçamento exato, é necessário visitar o terreno.</p></details><details><summary>Qual a diferença entre substituir o solo orgânico e tratá-lo com drenos?</summary><p>A substituição total do solo orgânico é indicada para camadas de até 3 m. Acima disso, o custo fica proibitivo. Os drenos verticais aceleram o adensamento, permitindo construir sobre o solo tratado. A escolha depende da espessura, prazo da obra e tipo de estrutura.</p></details><details><summary>Como evitar recalques em construções sobre solo orgânico?</summary><p>O manejo correto exige investigação prévia com sondagens e ensaios de adensamento. Projetar fundações profundas com estacas cravadas na camada resistente ou aplicar pré-carga com drenos são soluções eficazes. O monitoramento geotécnico durante a obra é indispensável para verificar as previsões de recalque.</p></details></section>
+<section class="section"><h2>Dúvidas habituais</h2><details><summary>O que caracteriza um solo orgânico em Ananindeua?</summary><p>O solo orgânico na região apresenta coloração escura, odor característico e teor de matéria orgânica acima de 10%. A turfa e a argila turfosa são os tipos mais comuns. Esses solos têm alta compressibilidade e baixa resistência, exigindo ensaios de adensamento para definir o manejo adequado.</p></details><details><summary>Quanto custa o manejo de solos orgânicos em Ananindeua?</summary><p>O custo referencial varia entre R$ 1.910 e R$ 6.620, dependendo da área, espessura da camada e tipo de tratamento. O valor inclui investigação geotécnica, ensaios de laboratório e projeto de <a href="/melhoramento/">melhoramento</a>. Para orçamento exato, é necessário visitar o terreno.</p></details><details><summary>Qual a diferença entre substituir o solo orgânico e tratá-lo com drenos?</summary><p>A substituição total do solo orgânico é indicada para camadas de até 3 m. Acima disso, o custo fica proibitivo. Os drenos verticais aceleram o adensamento, permitindo construir sobre o solo tratado. A escolha depende da espessura, prazo da obra e tipo de estrutura.</p></details><details><summary>Como evitar recalques em construções sobre solo orgânico?</summary><p>O manejo correto exige investigação prévia com sondagens e ensaios de adensamento. Projetar fundações profundas com estacas cravadas na camada resistente ou aplicar pré-carga com drenos são soluções eficazes. O monitoramento geotécnico durante a obra é indispensável para verificar as previsões de recalque.</p></details></section>
 
 
 

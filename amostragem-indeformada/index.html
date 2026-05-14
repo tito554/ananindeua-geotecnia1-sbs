@@ -116,6 +116,57 @@ header.hero, .hero { position: relative !important; }
 .leaflet-control { z-index: 800 !important; }
 .leaflet-container { z-index: 1 !important; }
 </style>
+<style id="inline-link-style">
+p a[href^="/"]:not(.cta-btn):not(.hero-cta){color:var(--accent,#556B2F) !important;text-decoration:underline !important;text-decoration-color:rgba(29,78,216,.45);text-underline-offset:2px;font-weight:600}
+p a[href^="/"]:not(.cta-btn):not(.hero-cta):hover{text-decoration-color:currentColor;opacity:.85}
+</style>
+<style id="navbar-compact-fix">
+/* Compactar navbar para que el menú entre completo */
+.navbar{padding:.65rem 1rem !important}
+.navbar .nav{gap:.55rem !important}
+.nav-item{font-size:.74rem !important;letter-spacing:.01em !important}
+.nav-item.has-dd .nav-cat-link{padding:.4rem .25rem !important}
+.nav-item.has-dd .nav-arrow{font-size:.7rem !important;margin-left:.15rem !important}
+.cta-btn{padding:.45rem .8rem !important;font-size:.72rem !important;letter-spacing:.03em !important}
+.logo-box,.brand-name,.brand{font-size:.82rem !important}
+.logo-text .main{font-size:.95rem !important}
+.logo-text .sub{font-size:.72rem !important}
+/* Para layouts aberdeen/classic con clase distinta */
+header nav a,.menu a{font-size:.78rem !important}
+@media (max-width:1100px){
+  .nav-item{font-size:.7rem !important}
+  .navbar .nav{gap:.4rem !important}
+  .cta-btn{padding:.4rem .65rem !important;font-size:.68rem !important}
+}
+</style>
+<style id="layout-defensive">
+body{overflow-x:clip;max-width:100vw}
+body>*{max-width:100vw}
+@media (min-width:901px){
+  aside{position:relative}
+  aside+main,aside~main,aside~div>main{margin-left:0}
+  .content-area{display:flex;gap:1rem}
+}
+@media (max-width:900px){
+  aside{width:100% !important;position:static !important;height:auto !important}
+  .navbar{flex-wrap:wrap}
+}
+</style>
+<style id="navbar-fixed-override">
+nav.navbar,.header-top,.main-header{position:fixed !important;top:0 !important;left:0 !important;right:0 !important;z-index:1010 !important}
+body{padding-top:60px}
+.hero,.hero-inner,header.hero{padding-top:1rem !important}
+@media (max-width:900px){body{padding-top:90px}}
+</style>
+<style id="sidebar-hover-fix-v2">
+/* Adaptativo: hover preserva color heredado (white en dark sidebar, dark en light) */
+aside .cat-name:hover,aside .sb-home:hover,aside .cat-sub-wrap a:hover,
+aside nav a:hover{color:inherit !important;text-decoration:underline !important;text-underline-offset:3px}
+aside .cat-name,aside .sb-home,aside nav a{color:inherit}
+/* Bg sutil que funciona en cualquier fondo */
+aside .cat-name:hover,aside .sb-home:hover{background:rgba(127,127,127,.12) !important}
+aside .cat-sub-wrap a:hover{background:rgba(127,127,127,.08) !important}
+</style>
 </head><body>
 
 <nav class="navbar">
@@ -186,7 +237,7 @@ header.hero, .hero { position: relative !important; }
 <hr style="border:none;height:2px;background:linear-gradient(90deg,transparent,#A16207,transparent);margin:2rem 0;width:60%;margin-left:auto;margin-right:auto">
 <p>ABNT NBR 9604:2016 - Amostragem indeformada de solos, ABNT NBR 9820/D1587M-15 - Thin-walled tube sampling, ABNT NBR 6122:2019 - Projeto e execução de fundações, ISO 22475-1:2006 - Geotechnical investigation and testing</p></section>
 
-<section class="section"><h2>Dúvidas habituais</h2><details><summary>Qual a diferença entre amostra deformada e indeformada?</summary><p>A amostra deformada perde a estrutura original do solo durante a coleta, servindo apenas para ensaios de classificação (granulometria, limites de Atterberg). A amostra indeformada preserva a estrutura, porosidade e tensões in situ, permitindo ensaios de resistência e compressibilidade. O tubo Shelby é o método mais usado para obter amostras indeformadas em argilas.</p></details><details><summary>Em quais tipos de solo a amostragem com tubo Shelby é mais indicada?</summary><p>O método funciona bem em argilas moles a médias, siltes coesivos e solos orgânicos com baixa densidade. Em Ananindeua, é comum em áreas como o Aurá e o bairro do Coqueiro. Solos arenosos ou com pedregulhos rompem a integridade da amostra; nesses casos, usa-se <a href="../sondagem-trado/" data-interlink="1">calicata</a> com coleta de blocos.</p></details><details><summary>Qual o prazo máximo para ensaiar a amostra indeformada?</summary><p>Recomenda-se realizar os ensaios em até 7 dias após a coleta, com a amostra armazenada em câmara úmida a 20°C. Para prazos superiores, a amostra deve ser protegida com parafina e mantida em caixa isotérmica. A ABNT NBR 9604:2016 especifica que o transporte não deve exceder 24 horas.</p></details><details><summary>A amostragem indeformada é obrigatória para projetos de fundação em Ananindeua?</summary><p>A NBR 6122:2019 recomenda amostras indeformadas para solos moles quando há risco de recalques. Em Ananindeua, onde grande parte do solo é argiloso e saturado, a prática é essencial para dimensionar fundações profundas ou melhoramento de terreno. Órgãos municipais podem exigir o ensaio em áreas de expansão urbana.</p></details><details><summary>Quanto custa o serviço de amostragem indeformada com tubo Shelby em Ananindeua?</summary><p>O valor referencial fica entre R$ 1.130 e R$ 2.360 por ponto de coleta, dependendo da profundidade e do número de amostras. O orçamento inclui mobilização, cravação, selagem e transporte até o laboratório. Para grandes volumes, há descontos progressivos.</p></details></section>
+<section class="section"><h2>Dúvidas habituais</h2><details><summary>Qual a diferença entre amostra deformada e indeformada?</summary><p>A amostra deformada perde a estrutura original do solo durante a coleta, servindo apenas para ensaios de classificação (granulometria, limites de Atterberg). A amostra indeformada preserva a estrutura, porosidade e tensões in situ, permitindo ensaios de resistência e compressibilidade. O tubo Shelby é o método mais usado para obter amostras indeformadas em argilas.</p></details><details><summary>Em quais tipos de solo a amostragem com tubo Shelby é mais indicada?</summary><p>O método funciona bem em argilas moles a médias, siltes coesivos e solos orgânicos com baixa densidade. Em Ananindeua, é comum em áreas como o Aurá e o bairro do Coqueiro. Solos arenosos ou com pedregulhos rompem a integridade da amostra; nesses casos, usa-se <a href="../sondagem-trado/" data-interlink="1">calicata</a> com coleta de blocos.</p></details><details><summary>Qual o prazo máximo para ensaiar a amostra indeformada?</summary><p>Recomenda-se realizar os ensaios em até 7 dias após a coleta, com a amostra armazenada em câmara úmida a 20°C. Para prazos superiores, a amostra deve ser protegida com parafina e mantida em caixa isotérmica. A ABNT NBR 9604:2016 especifica que o transporte não deve exceder 24 horas.</p></details><details><summary>A amostragem indeformada é obrigatória para projetos de fundação em Ananindeua?</summary><p>A NBR 6122:2019 recomenda amostras indeformadas para solos moles quando há risco de recalques. Em Ananindeua, onde grande parte do solo é argiloso e saturado, a prática é essencial para dimensionar fundações profundas ou <a href="/melhoramento/">melhoramento</a> de terreno. Órgãos municipais podem exigir o ensaio em áreas de expansão urbana.</p></details><details><summary>Quanto custa o serviço de amostragem indeformada com tubo Shelby em Ananindeua?</summary><p>O valor referencial fica entre R$ 1.130 e R$ 2.360 por ponto de coleta, dependendo da profundidade e do número de amostras. O orçamento inclui mobilização, cravação, selagem e transporte até o laboratório. Para grandes volumes, há descontos progressivos.</p></details></section>
 
 
 
