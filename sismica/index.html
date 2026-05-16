@@ -206,6 +206,188 @@ nav[aria-label="breadcrumb"] a:hover, .crumb a:hover { color: #FCD34D !important
 .crumb a[href="/"], .breadcrumb a[href="/"], a.home-link { color: #FFFFFF !important; }
 .brand-name, .logo-text, .main, .brand { color: #FFFFFF !important; }
 </style>
+<style id="comprehensive-defaults-v1">
+/* Reset basico */
+* { box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; margin: 0; line-height: 1.6; color: #1E293B; background: #F8FAFC; }
+
+/* Layout wrapper */
+.layout, .main-wrapper, .content-area { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+
+/* Header */
+.header, .main-header, header.main-header { background: #0F172A; color: #FFF; padding: 1rem 1.5rem; margin-bottom: 1.5rem; }
+.header-top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.header-email { color: #FCD34D; text-decoration: none; }
+.brand, .brand-text, .brand-name { color: #FFFFFF; font-weight: 700; font-size: 1.25rem; line-height: 1.1; }
+.brand-city { color: #94A3B8; font-size: .85rem; display: block; }
+.brand-logo { display: inline-block; vertical-align: middle; }
+
+/* Breadcrumb / crumb */
+.crumb, .breadcrumb { padding: .5rem 0; font-size: .85rem; color: rgba(255,255,255,.85); }
+.crumb a, .breadcrumb a { color: #FFFFFF; text-decoration: underline; }
+.crumb a:hover, .breadcrumb a:hover { color: #FCD34D; }
+
+/* Body wrapper - layout flex */
+.layout { display: grid; grid-template-columns: 240px 1fr; gap: 1.5rem; margin: 1.5rem auto; padding: 0 1.5rem; max-width: 1280px; }
+@media (max-width: 900px) { .layout { grid-template-columns: 1fr; } }
+
+/* Sidebar */
+.sb-home, .sidebar, aside { background: #1E293B; color: #FFFFFF; border-radius: 10px; padding: 1rem; }
+.sb-home a, .sidebar a, aside a { color: #FFFFFF; text-decoration: none; display: block; padding: .5rem .75rem; border-radius: 6px; transition: background .15s; }
+.sb-home a:hover, .sidebar a:hover { background: rgba(255,255,255,.08); }
+.cat-row, .cat-item { display: flex; align-items: center; justify-content: space-between; padding: .4rem .75rem; }
+.cat-name { color: #FFFFFF; font-weight: 500; flex: 1; }
+.cat-toggle, .cat-arrow { background: transparent; border: 0; color: #FFFFFF; cursor: pointer; padding: .2rem .4rem; }
+.cat-sub { padding-left: 1rem; }
+.cat-sub a { font-size: .85rem; color: rgba(255,255,255,.85); padding: .3rem .75rem; }
+
+/* Block / section base */
+.block { padding: 2rem 1.5rem; }
+.block > div { max-width: 1200px; margin: 0 auto; }
+.map-block { padding: 2rem 0; background: #F1F5F9; }
+.map-wrap { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+#mapa-ciudad { width: 100%; height: 380px; border-radius: 8px; }
+
+/* Cards / grid */
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+.card { background: #FFF; border: 1px solid #E5E7EB; border-radius: 10px; padding: 1.2rem; text-decoration: none; color: inherit; box-shadow: 0 1px 2px rgba(0,0,0,.04); transition: all .2s; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 14px rgba(0,0,0,.08); border-color: #1D4ED8; }
+
+/* H1/H2 */
+h1 { color: #0F172A; font-size: 1.85rem; margin: 1rem 0 1.5rem; line-height: 1.2; }
+h2 { color: #1E293B; font-size: 1.35rem; margin: 1.5rem 0 .8rem; font-weight: 700; }
+h3 { color: #1E293B; font-size: 1.1rem; margin: 1rem 0 .5rem; }
+p { margin: 0 0 1rem; color: #374151; }
+a { color: #1D4ED8; }
+
+/* Mid CTA */
+.mid-cta { padding: 2rem 0; }
+.mid-cta > div { max-width: 720px; margin: 0 auto; background: linear-gradient(135deg, #1D4ED815, #1D4ED808); border-left: 4px solid #1D4ED8; padding: 1.6rem 1.8rem; border-radius: 8px; text-align: center; }
+
+/* Footer */
+footer, .footer { background: #0F172A; color: #94A3B8; padding: 1.5rem; text-align: center; margin-top: 2rem; font-size: .85rem; }
+footer a, .footer a { color: #FCD34D; }
+
+/* Authority refs */
+.authority-refs { color: #94A3B8; font-size: .8rem; }
+.updated-info { color: #94A3B8; font-size: .8rem; font-style: italic; }
+</style>
+<style id="critical-visual-fix-v1">
+/* Sidebar: ancho 260px + adaptive font size */
+.sb-home, .sidebar, aside.sidebar, aside { width: 260px !important; }
+.sb-home .cat-row, .sidebar .cat-row, aside .cat-row, .nav-cat-row { font-size: .92rem; line-height: 1.25; }
+.sb-home .cat-name, .sidebar .cat-name, .cat-name { font-size: .92rem; line-height: 1.25; word-break: keep-all; hyphens: auto; }
+/* Labels muy largos: font-size más chico */
+.cat-name:where(:has(*)),
+.cat-row a, .nav-cat-link { white-space: normal; }
+
+/* Remover email sticky position:fixed (debe estar en flow del header) */
+.header-email[style*="position:fixed"],
+.header-email[style*="position: fixed"],
+a.header-email:where([href^="mailto:"]):not(footer a):not(.mid-cta a) { position: static !important; }
+header .header-email, header a[href^="mailto:"] { position: static !important; top: auto !important; right: auto !important; }
+
+/* Brand contrast: text-shadow para legibilidad */
+.brand, .brand-name, .brand-text, .logo-text, .main-header .brand {
+  text-shadow: 0 1px 3px rgba(0,0,0,.7);
+  color: #FFFFFF !important;
+}
+
+/* Header z-index alto (sobre map/content) */
+header, .header, .main-header, .top-header { position: relative; z-index: 100; }
+
+/* Map z-index bajo (debajo de navbar) */
+#mapa-ciudad, .map-block { z-index: 1; position: relative; }
+.leaflet-pane { z-index: 2; }
+
+/* Email contacto en navbar: contraste + visibilidad */
+.header-email, header .header-email, header a[href^="mailto:"] {
+  color: #FCD34D !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,.6);
+  font-weight: 500;
+}
+
+/* Servicios card grid: no incluir folders garbage */
+.cards-grid .card[href$="/css/"],
+.cards-grid .card[href$="/js/"],
+.cards-grid .card[href$="/img/"],
+.cards-grid .card[href$="/leaflet/"] { display: none !important; }
+
+/* Hero image santiago: contain en lugar de cover */
+.hero-bg, .hero-image { object-fit: contain; }
+</style>
+<style id="critical-fix-v2">
+/* Header NO sticky en sub layouts */
+header.main-header, header[role="banner"], body > header {
+  position: static !important;
+  top: auto !important;
+}
+/* Sidebar sticky, pero start después del header (más espacio) */
+.sb-home, aside.sidebar, .sidebar {
+  position: sticky !important;
+  top: 1rem !important;
+  z-index: 5 !important;
+  width: 260px !important;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+}
+/* Header z-index alto siempre */
+header.main-header, header[role="banner"], body > header {
+  z-index: 100 !important;
+  position: relative !important;
+}
+/* Sidebar font-size más chico en labels largos */
+.cat-name, .cat-row a, .nav-cat-link {
+  font-size: .88rem !important;
+  line-height: 1.2 !important;
+  hyphens: auto;
+  word-break: break-word;
+}
+/* Sidebar items NO superpongan header */
+.layout, .main-wrapper, .content-area { padding-top: 1rem; }
+/* Header altura mínima visible */
+header.main-header, header[role="banner"], body > header { min-height: 80px; }
+/* Brand SIEMPRE visible (no cortado) */
+.brand, .brand-name, .brand-text, .logo-text {
+  text-shadow: 0 1px 3px rgba(0,0,0,.8) !important;
+  color: #FFFFFF !important;
+  font-weight: 700;
+}
+/* Email contraste alto */
+.header-email, header a[href^="mailto:"] {
+  color: #FCD34D !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,.8) !important;
+  font-weight: 600;
+}
+</style>
+<style id="kill-sticky-header-v1">
+/* MATAR position:fixed legacy de fase-i-fixes */
+nav.navbar, .header-top, .main-header, header.header, .header {
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  width: auto !important;
+}
+body { padding-top: 0 !important; }
+
+/* Sidebar sticky pero NO encima del header */
+.sb-home, aside.sidebar, .sidebar, aside {
+  position: sticky !important;
+  top: 1rem !important;
+  z-index: 2 !important;
+  width: 260px !important;
+}
+
+/* Cards en grid: layout flex/grid sin colapsar */
+.cards-grid, [style*="display:grid"][style*="auto-fill"] {
+  margin-top: 1rem !important;
+}
+
+/* Layout main: padding-top para clearance */
+main, .main-content, .content-area, .layout > *:not(aside):not(.sidebar) {
+  padding-top: 0 !important;
+}
+</style>
 </head><body>
 
 <nav class="navbar">
@@ -213,7 +395,7 @@ nav[aria-label="breadcrumb"] a:hover, .crumb a:hover { color: #FCD34D !important
         <div class="logo-box">G1</div>
         <div class="logo-text">Ananindeua Br</div></a></div>
     <div class="nav">
-        <div class="nav-item has-dd"><a href="../exploracao/" class="nav-cat-link">Exploração</a><button class="nav-arrow" type="button">▾</button><div class="dd"><a href="../sondagem-trado/">Sondagem a trado (calicata)</a><a href="../standard-penetration-test/">Ensaio SPT (Standard Penetration Test)</a></div></div><div class="nav-item has-dd"><a href="../ensaios-in-situ/" class="nav-cat-link">Ensaios in situ</a><button class="nav-arrow" type="button">▾</button><div class="dd"><a href="../ensaio-dilatometro-plano/">Ensaio de dilatómetro plano (DMT)</a><a href="../ensaio-placa-carga/">Ensaio de placa de carga (PLT)</a><a href="../ensaio-pressiometrico-menard/">Ensaio pressiométrico de Ménard</a><a href="../amostragem-indeformada/">Amostragem indeformada (tubo Shelby)</a></div></div><div class="nav-item has-dd"><a href="../laboratorio/" class="nav-cat-link">Laboratório</a><button class="nav-arrow" type="button">▾</button><div class="dd"><a href="../peneiramento-hidrometro/">Análise granulométrica (peneiramento + hidrômetro)</a><a href="../ensaio-compressao-simples/">Ensaio de compressão simples (UCS)</a><a href="../ensaio-consolidacao-edometrica/">Ensaio de consolidação edométrica (Oedometer)</a><a href="../ensaio-cbr-laboratorio/">Ensaio CBR de laboratório</a><a href="../estudo-mecanica-solos/">Estudo de mecânica dos solos</a><a href="../ensaio-permeabilidade-laboratorio/">Ensaio de permeabilidade em laboratório (carga variável/constante)</a></div></div><div class="nav-item has-dd"><a href="../geofisica/" class="nav-cat-link">Geofísica</a><button class="nav-arrow" type="button">▾</button><div class="dd"><a href="../velocidade-ondas-cisalhamento/">MASW / VS30 (velocidade de ondas de cisalhamento)</a><a href="../microtremores-hvsr/">Microtremores HVSR (Método Nakamura)</a><a href="../resistividade-eletrica-sev/">Resistividade elétrica / SEV (Sondagem Elétrica Vertical)</a></div></div><div class="nav-item has-dd"><a href="../fundacoes/" class="nav-cat-link">Fundações</a><button class="nav-arrow" type="button">▾</button><div class="dd"><a href="../fundacoes-aterros/">Fundações em aterros (análise)</a><a href="../projeto-fundacoes-superficiais/">Projeto de fundações superficiais</a><a href="../projeto-fundacoes-sismicas/">Projeto de fundações sísmicas</a><a href="../projeto-radier/">Projeto de radier</a><a href="../projeto-micropilotes/">Projeto de micropilotes</a><a href="../projeto-estacas-cravadas/">Projeto de estacas cravadas</a></div></div><div class="nav-item has-dd"><a href="../taludes-e-muros/" class="nav-cat-link">Taludes e muros</a><button class="nav-arrow" type="button">▾</button><div class="dd"><a href="../analise-estabilidade-taludes/">Análise de estabilidade de taludes</a><a href="../analise-ruptura-taludes/">Análise de ruptura de taludes</a><a href="../analise-fluxos-detritos/">Análise de fluxos de detritos</a><a href="../calculo-fator-seguranca/">Cálculo do fator de segurança (FS)</a><a href="../projeto-ancoragens-ativas-passivas/">Projeto de ancoragens ativas/passivas</a><a href="../projeto-estabilizacao-taludes/">Projeto de estabilização de taludes</a><a href="../projeto-muros-contencao/">Projeto de muros de contenção</a><a href="../projeto-muros-mse/">Projeto de muros MSE (solo reforçado)</a><a href="../projeto-paredes-diafragma/">Projeto de paredes diafragma</a><a href="../projeto-cortinas-estacas-pranchas/">Projeto de cortinas de estacas pranchas</a><a href="../monitoramento-geotecnico-taludes/">Monitoramento geotécnico de taludes (mensal)</a></div></div><div class="nav-item has-dd"><a href="../melhoramento/" class="nav-cat-link">Melhoramento</a><button class="nav-arrow" type="button">▾</button><div class="dd"><a href="../analise-solos-nao-saturados/">Análise de solos não saturados</a><a href="../projeto-colunas-brita/">Projeto de colunas de brita (stone columns)</a><a href="../projeto-compactacao-dinamica/">Projeto de compactação dinâmica</a><a href="../projeto-drenagem-geotecnica/">Projeto de drenagem geotécnica</a><a href="../projeto-drenos-verticais-pre-fabricados/">Projeto de drenos verticais pré-fabricados</a><a href="../projeto-vibrocompactacao/">Projeto de vibrocompactação</a><a href="../especificacao-geogrelhas/">Especificação de geogrelhas</a><a href="../especificacao-geomembranas/">Especificação de geomembranas</a><a href="../estabilizacao-cal-cimento/">Estabilização com cal e cimento</a><a href="../manejo-solos-organicos/">Manejo de solos orgânicos</a><a href="../remediacao-solos-contaminados/">Remediação de solos contaminados</a></div></div><div class="nav-item has-dd"><a href="../escavacoes-subterraneas/" class="nav-cat-link">Escavações</a><button class="nav-arrow" type="button">▾</button><div class="dd"><a href="../projeto-geotecnico-escavacoes-profundas/">Projeto geotécnico de escavações profundas</a></div></div><div class="nav-item has-dd"><a href="../geotecnia-viaria/" class="nav-cat-link">Geotecnia viária</a><button class="nav-arrow" type="button">▾</button><div class="dd"><a href="../projeto-pavimento-flexivel/">Projeto de pavimento flexível</a><a href="../projeto-aterros-viarios/">Projeto de aterros viários</a><a href="../estabilizacao-solos-rodovias/">Estabilização de solos para rodovias</a><a href="../estudo-cbr-projeto-viario/">Estudo CBR para projeto viário</a><a href="../avaliacao-pavimentos-existentes/">Avaliação de pavimentos existentes</a></div></div><div class="nav-item has-dd"><a href="../sismica/" class="nav-cat-link">Sísmica</a><button class="nav-arrow" type="button">▾</button><div class="dd"><a href="../analise-liquefacao-solos/">Análise de liquefação de solos</a></div></div>
+        <div class="nav-item has-dd"><button class="nav-arrow" type="button">▾</button><div class="dd"></div></div><div class="nav-item has-dd"><a href="../ensaios-in-situ/" class="nav-cat-link">Ensaios in situ</a><button class="nav-arrow" type="button">▾</button><div class="dd"></div></div><div class="nav-item has-dd"><a href="../laboratorio/" class="nav-cat-link">Laboratório</a><button class="nav-arrow" type="button">▾</button><div class="dd"></div></div><div class="nav-item has-dd"><button class="nav-arrow" type="button">▾</button><div class="dd"></div></div><div class="nav-item has-dd"><a href="../fundacoes/" class="nav-cat-link">Fundações</a><button class="nav-arrow" type="button">▾</button><div class="dd"><a href="../projeto-fundacoes-sismicas/">Projeto de fundações sísmicas</a></div></div><div class="nav-item has-dd"><button class="nav-arrow" type="button">▾</button><div class="dd"></div></div><div class="nav-item has-dd"><a href="../melhoramento/" class="nav-cat-link">Melhoramento</a><button class="nav-arrow" type="button">▾</button><div class="dd"></div></div><div class="nav-item has-dd"><button class="nav-arrow" type="button">▾</button><div class="dd"></div></div><div class="nav-item has-dd"><a href="../geotecnia-viaria/" class="nav-cat-link">Geotecnia viária</a><button class="nav-arrow" type="button">▾</button><div class="dd"></div></div><div class="nav-item has-dd"><a href="../sismica/" class="nav-cat-link">Sísmica</a><button class="nav-arrow" type="button">▾</button><div class="dd"></div></div>
         </div>
 </nav>
 
@@ -228,7 +410,7 @@ nav[aria-label="breadcrumb"] a:hover, .crumb a:hover { color: #FCD34D !important
 <p>Em Ananindeua, a categoria Sísmica aborda a avaliação da resposta dinâmica do terreno frente a solicitações naturais ou induzidas, considerando a influência direta das formações sedimentares da Bacia do Marajó. A investigação geofísica e os ensaios de campo, seguindo as diretrizes da NBR 15421 e práticas recomendadas pela ABNT para regiões de baixa sismicidade, são essenciais para caracterizar o comportamento do subsolo. A correta interpretação desses dados permite antecipar riscos, com destaque para estudos especializados como a <a href="analise-liquefacao-solos">análise de liquefação de solos</a>, crucial em depósitos arenosos saturados.</p>
 
 <p>Esta especialidade é mandatória em projetos de infraestrutura portuária, grandes estruturas de contenção e edifícios industriais localizados sobre aluviões. A aplicação de métodos como cross-hole e down-hole, integrada à <a href="analise-liquefacao-solos">análise de liquefação de solos</a>, fundamenta o dimensionamento seguro de fundações profundas. Complementarmente, a execução de sondagens sísmicas e a modelagem numérica do terreno garantem a resiliência estrutural exigida pelo plano diretor municipal para empreendimentos de maior risco, consolidando uma abordagem geotécnica preventiva e normatizada.</p></div></section>
-<section class="block" style="padding:2rem 1.5rem"><div style="max-width:1200px;margin:0 auto"><h2 style="margin-bottom:1.5rem;font-weight:700">Serviços disponíveis</h2><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem"><a href="../analise-liquefacao-solos/" style="display:block;padding:1.2rem;border:1px solid #E5E7EB;border-radius:10px;text-decoration:none;color:inherit;background:#FFFFFF;transition:all .2s;box-shadow:0 1px 2px rgba(0,0,0,.04)" onmouseover="this.style.borderColor='#F43F5E';this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 14px rgba(0,0,0,.08)'" onmouseout="this.style.borderColor='#E5E7EB';this.style.transform='translateY(0)';this.style.boxShadow='0 1px 2px rgba(0,0,0,.04)'"><h3 style="margin:0 0 .4rem;font-size:1.1rem">Análise de liquefação de solos</h3><span style="font-size:.85rem;color:#666">→ Ver detalle</span></a></div></div></section>
+<section class="block" style="padding:2rem 1.5rem"><div style="max-width:1200px;margin:0 auto"><h2 style="margin-bottom:1.5rem;font-weight:700">Serviços disponíveis</h2><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem"></div></div></section>
 <section class="block mid-cta-403c-403c" style="padding:2rem 0">
       <div style="max-width:720px;margin:0 auto;background:linear-gradient(135deg,#A78BFA15,#A78BFA08);border-left:4px solid #A78BFA;padding:1.5rem 1.8rem;border-radius:6px;text-align:center">
         <h3 style="margin:0 0 .4rem;font-size:1.15rem;color:#1E293B;text-align:center">Precisa de uma avaliação geotécnica?</h3>
@@ -265,7 +447,7 @@ nav[aria-label="breadcrumb"] a:hover, .crumb a:hover { color: #FCD34D !important
 <hr style="border:none;height:2px;background:linear-gradient(90deg,transparent,#A16207,transparent);margin:2rem 0;width:60%;margin-left:auto;margin-right:auto">
 <p>ABNT NBR 9604:2016 - <a href="/amostragem-indeformada/">Amostragem indeformada</a> de solos, ABNT NBR 9820/D1587M-15 - Thin-walled tube sampling, ABNT NBR 6122:2019 - Projeto e execução de fundações, ISO 22475-1:2006 - Geotechnical investigation and testing</p></section>
 
-<section class="section"><h2>Dúvidas habituais</h2><details><summary>Qual a diferença entre amostra deformada e indeformada?</summary><p>A amostra deformada perde a estrutura original do solo durante a coleta, servindo apenas para ensaios de classificação (granulometria, limites de Atterberg). A amostra indeformada preserva a estrutura, porosidade e tensões in situ, permitindo ensaios de resistência e compressibilidade. O tubo Shelby é o método mais usado para obter amostras indeformadas em argilas.</p></details><details><summary>Em quais tipos de solo a amostragem com tubo Shelby é mais indicada?</summary><p>O método funciona bem em argilas moles a médias, siltes coesivos e solos orgânicos com baixa densidade. Em Ananindeua, é comum em áreas como o Aurá e o bairro do Coqueiro. Solos arenosos ou com pedregulhos rompem a integridade da amostra; nesses casos, usa-se <a href="../sondagem-trado/" data-interlink="1">calicata</a> com coleta de blocos.</p></details><details><summary>Qual o prazo máximo para ensaiar a amostra indeformada?</summary><p>Recomenda-se realizar os ensaios em até 7 dias após a coleta, com a amostra armazenada em câmara úmida a 20°C. Para prazos superiores, a amostra deve ser protegida com parafina e mantida em caixa isotérmica. A ABNT NBR 9604:2016 especifica que o transporte não deve exceder 24 horas.</p></details><details><summary>A amostragem indeformada é obrigatória para projetos de fundação em Ananindeua?</summary><p>A NBR 6122:2019 recomenda amostras indeformadas para solos moles quando há risco de recalques. Em Ananindeua, onde grande parte do solo é argiloso e saturado, a prática é essencial para dimensionar fundações profundas ou melhoramento de terreno. Órgãos municipais podem exigir o ensaio em áreas de expansão urbana.</p></details><details><summary>Quanto custa o serviço de amostragem indeformada com tubo Shelby em Ananindeua?</summary><p>O valor referencial fica entre R$ 1.130 e R$ 2.360 por ponto de coleta, dependendo da profundidade e do número de amostras. O orçamento inclui mobilização, cravação, selagem e transporte até o laboratório. Para grandes volumes, há descontos progressivos.</p></details></section>
+<section class="section"><h2>Dúvidas habituais</h2><details><summary>Qual a diferença entre amostra deformada e indeformada?</summary><p>A amostra deformada perde a estrutura original do solo durante a coleta, servindo apenas para ensaios de classificação (granulometria, limites de Atterberg). A amostra indeformada preserva a estrutura, porosidade e tensões in situ, permitindo ensaios de resistência e compressibilidade. O tubo Shelby é o método mais usado para obter amostras indeformadas em argilas.</p></details><details><summary>Em quais tipos de solo a amostragem com tubo Shelby é mais indicada?</summary><p>O método funciona bem em argilas moles a médias, siltes coesivos e solos orgânicos com baixa densidade. Em Ananindeua, é comum em áreas como o Aurá e o bairro do Coqueiro. Solos arenosos ou com pedregulhos rompem a integridade da amostra; nesses casos, usa-se  com coleta de blocos.</p></details><details><summary>Qual o prazo máximo para ensaiar a amostra indeformada?</summary><p>Recomenda-se realizar os ensaios em até 7 dias após a coleta, com a amostra armazenada em câmara úmida a 20°C. Para prazos superiores, a amostra deve ser protegida com parafina e mantida em caixa isotérmica. A ABNT NBR 9604:2016 especifica que o transporte não deve exceder 24 horas.</p></details><details><summary>A amostragem indeformada é obrigatória para projetos de fundação em Ananindeua?</summary><p>A NBR 6122:2019 recomenda amostras indeformadas para solos moles quando há risco de recalques. Em Ananindeua, onde grande parte do solo é argiloso e saturado, a prática é essencial para dimensionar fundações profundas ou melhoramento de terreno. Órgãos municipais podem exigir o ensaio em áreas de expansão urbana.</p></details><details><summary>Quanto custa o serviço de amostragem indeformada com tubo Shelby em Ananindeua?</summary><p>O valor referencial fica entre R$ 1.130 e R$ 2.360 por ponto de coleta, dependendo da profundidade e do número de amostras. O orçamento inclui mobilização, cravação, selagem e transporte até o laboratório. Para grandes volumes, há descontos progressivos.</p></details></section>
 
 
 
@@ -313,7 +495,7 @@ nav[aria-label="breadcrumb"] a:hover, .crumb a:hover { color: #FCD34D !important
           <a href="https://www.openstreetmap.org/?mlat=-1.374035&mlon=-48.4016623#map=11/-1.374035/-48.4016623" target="_blank" rel="noopener">Localização e área de serviço</a>
         </div>
       </div>
-    </section><footer style="background:#09090B;color:rgba(255,255,255,.85);padding:3rem 1.5rem 2rem"><div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem"><div><h4 style="color:#FFF;font-size:1rem;margin:0 0 .8rem">ANANINDEUA BR</h4><p style="margin:0;font-size:.9rem;color:rgba(255,255,255,.7);line-height:1.6">Ananindeua, Brasil</p></div><div><h4 style="color:#FFF;font-size:.92rem;margin:0 0 .8rem">SERVIÇOS</h4><a href="../estudo-mecanica-solos/" style="color:rgba(255,255,255,.75);text-decoration:none;display:block;padding:.25rem 0">Serviços</a><a href="../standard-penetration-test/" style="color:rgba(255,255,255,.75);text-decoration:none;display:block;padding:.25rem 0">SPT</a><a href="../sondagem-trado/" style="color:rgba(255,255,255,.75);text-decoration:none;display:block;padding:.25rem 0">Test pits</a></div><div><h4 style="color:#FFF;font-size:.92rem;margin:0 0 .8rem">CONTATO</h4><p style="margin:0;font-size:.9rem;line-height:1.8"><a href="mailto:contato@geotecnia1.sbs" style="color:#FFF;text-decoration:none">contato@geotecnia1.sbs</a></p></div></div><div style="max-width:1100px;margin:2rem auto 0;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.1);text-align:center;font-size:.8rem;color:rgba(255,255,255,.5)">© 2026 Geotecnia 1 Br. Todos os direitos reservados.</div><div data-updated="2026-04-12" style="font-size:.78rem;color:rgba(255,255,255,.6);margin-top:.8rem">Última atualização: 2026-03-24</div><div data-authority-refs class="authority-refs" style="text-align:center;font-size:.8rem;padding:.5rem 0;opacity:.6"><strong>Referencias técnicas:</strong> <a href="https://eurocodes.jrc.ec.europa.eu/showpage.php?id=132" rel="nofollow noopener" target="_blank">Eurocódigo 7</a> · <a href="https://www.iso.org/committee/49802.html" rel="nofollow noopener" target="_blank">ISO Geotécnica</a> · <a href="https://www.aenor.com/" rel="nofollow noopener" target="_blank">AENOR (España)</a></div></footer>
+    </section><footer style="background:#09090B;color:rgba(255,255,255,.85);padding:3rem 1.5rem 2rem"><div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem"><div><h4 style="color:#FFF;font-size:1rem;margin:0 0 .8rem">ANANINDEUA BR</h4><p style="margin:0;font-size:.9rem;color:rgba(255,255,255,.7);line-height:1.6">Ananindeua, Brasil</p></div><div><h4 style="color:#FFF;font-size:.92rem;margin:0 0 .8rem">SERVIÇOS</h4></div><div><h4 style="color:#FFF;font-size:.92rem;margin:0 0 .8rem">CONTATO</h4><p style="margin:0;font-size:.9rem;line-height:1.8"><a href="mailto:contato@geotecnia1.sbs" style="color:#FFF;text-decoration:none">contato@geotecnia1.sbs</a></p></div></div><div style="max-width:1100px;margin:2rem auto 0;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.1);text-align:center;font-size:.8rem;color:rgba(255,255,255,.5)">© 2026 Geotecnia 1 Br. Todos os direitos reservados.</div><div data-updated="2026-04-12" style="font-size:.78rem;color:rgba(255,255,255,.6);margin-top:.8rem">Última atualização: 2026-03-24</div><div data-authority-refs class="authority-refs" style="text-align:center;font-size:.8rem;padding:.5rem 0;opacity:.6"><strong>Referencias técnicas:</strong> <a href="https://eurocodes.jrc.ec.europa.eu/showpage.php?id=132" rel="nofollow noopener" target="_blank">Eurocódigo 7</a> · <a href="https://www.iso.org/committee/49802.html" rel="nofollow noopener" target="_blank">ISO Geotécnica</a> · <a href="https://www.aenor.com/" rel="nofollow noopener" target="_blank">AENOR (España)</a></div></footer>
 
 <script>(function(){
 // Dropdown click toggle
